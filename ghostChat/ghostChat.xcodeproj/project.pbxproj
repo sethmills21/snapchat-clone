@@ -7,25 +7,34 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6545DF129A24C14387B33561 /* libPods-ghostChat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E4C0D21738A5414523291DC9 /* libPods-ghostChat.a */; };
 		8DC999FA1D1F034A004767EA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC999F91D1F034A004767EA /* main.m */; };
 		8DC999FD1D1F034A004767EA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC999FC1D1F034A004767EA /* AppDelegate.m */; };
-		8DC99A001D1F034A004767EA /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC999FF1D1F034A004767EA /* ViewController.m */; };
 		8DC99A031D1F034A004767EA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8DC99A011D1F034A004767EA /* Main.storyboard */; };
 		8DC99A051D1F034A004767EA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8DC99A041D1F034A004767EA /* Assets.xcassets */; };
 		8DC99A081D1F034A004767EA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8DC99A061D1F034A004767EA /* LaunchScreen.storyboard */; };
+		8DC99A111D1F13AC004767EA /* SplashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC99A101D1F13AC004767EA /* SplashViewController.m */; };
+		8DC99A141D1F182A004767EA /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC99A131D1F182A004767EA /* SignUpViewController.m */; };
+		8DC99A161D1F2C04004767EA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8DC99A151D1F2C04004767EA /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5300E38E9D9A240265B175AB /* Pods-ghostChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ghostChat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ghostChat/Pods-ghostChat.debug.xcconfig"; sourceTree = "<group>"; };
 		8DC999F51D1F034A004767EA /* ghostChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ghostChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DC999F91D1F034A004767EA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8DC999FB1D1F034A004767EA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		8DC999FC1D1F034A004767EA /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		8DC999FE1D1F034A004767EA /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		8DC999FF1D1F034A004767EA /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		8DC99A021D1F034A004767EA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8DC99A041D1F034A004767EA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8DC99A071D1F034A004767EA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8DC99A091D1F034A004767EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8DC99A0F1D1F13AC004767EA /* SplashViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SplashViewController.h; sourceTree = "<group>"; };
+		8DC99A101D1F13AC004767EA /* SplashViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SplashViewController.m; sourceTree = "<group>"; };
+		8DC99A121D1F182A004767EA /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
+		8DC99A131D1F182A004767EA /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
+		8DC99A151D1F2C04004767EA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		906BFCAD5E018B4C5E6B86F7 /* Pods-ghostChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ghostChat.release.xcconfig"; path = "Pods/Target Support Files/Pods-ghostChat/Pods-ghostChat.release.xcconfig"; sourceTree = "<group>"; };
+		E4C0D21738A5414523291DC9 /* libPods-ghostChat.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ghostChat.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,17 +42,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6545DF129A24C14387B33561 /* libPods-ghostChat.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		15AD57871A47336863179E39 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E4C0D21738A5414523291DC9 /* libPods-ghostChat.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		8DC999EC1D1F034A004767EA = {
 			isa = PBXGroup;
 			children = (
 				8DC999F71D1F034A004767EA /* ghostChat */,
 				8DC999F61D1F034A004767EA /* Products */,
+				94DAB2A513ED47A4A3BFAF57 /* Pods */,
+				15AD57871A47336863179E39 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -60,13 +80,14 @@
 			children = (
 				8DC999FB1D1F034A004767EA /* AppDelegate.h */,
 				8DC999FC1D1F034A004767EA /* AppDelegate.m */,
-				8DC999FE1D1F034A004767EA /* ViewController.h */,
-				8DC999FF1D1F034A004767EA /* ViewController.m */,
 				8DC99A011D1F034A004767EA /* Main.storyboard */,
 				8DC99A041D1F034A004767EA /* Assets.xcassets */,
 				8DC99A061D1F034A004767EA /* LaunchScreen.storyboard */,
-				8DC99A091D1F034A004767EA /* Info.plist */,
+				8DC99A0F1D1F13AC004767EA /* SplashViewController.h */,
+				8DC99A101D1F13AC004767EA /* SplashViewController.m */,
 				8DC999F81D1F034A004767EA /* Supporting Files */,
+				8DC99A121D1F182A004767EA /* SignUpViewController.h */,
+				8DC99A131D1F182A004767EA /* SignUpViewController.m */,
 			);
 			path = ghostChat;
 			sourceTree = "<group>";
@@ -74,9 +95,20 @@
 		8DC999F81D1F034A004767EA /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				8DC99A151D1F2C04004767EA /* GoogleService-Info.plist */,
+				8DC99A091D1F034A004767EA /* Info.plist */,
 				8DC999F91D1F034A004767EA /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		94DAB2A513ED47A4A3BFAF57 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5300E38E9D9A240265B175AB /* Pods-ghostChat.debug.xcconfig */,
+				906BFCAD5E018B4C5E6B86F7 /* Pods-ghostChat.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -86,9 +118,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8DC99A0C1D1F034A004767EA /* Build configuration list for PBXNativeTarget "ghostChat" */;
 			buildPhases = (
+				96C97F17D4AD6759E9322AD8 /* [CP] Check Pods Manifest.lock */,
 				8DC999F11D1F034A004767EA /* Sources */,
 				8DC999F21D1F034A004767EA /* Frameworks */,
 				8DC999F31D1F034A004767EA /* Resources */,
+				3EF8D85C81A229E55167EEFF /* [CP] Embed Pods Frameworks */,
+				24FDA3FEE2DE3D1AAB385381 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -137,6 +172,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8DC99A081D1F034A004767EA /* LaunchScreen.storyboard in Resources */,
+				8DC99A161D1F2C04004767EA /* GoogleService-Info.plist in Resources */,
 				8DC99A051D1F034A004767EA /* Assets.xcassets in Resources */,
 				8DC99A031D1F034A004767EA /* Main.storyboard in Resources */,
 			);
@@ -144,14 +180,63 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		24FDA3FEE2DE3D1AAB385381 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ghostChat/Pods-ghostChat-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3EF8D85C81A229E55167EEFF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ghostChat/Pods-ghostChat-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		96C97F17D4AD6759E9322AD8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		8DC999F11D1F034A004767EA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8DC99A001D1F034A004767EA /* ViewController.m in Sources */,
 				8DC999FD1D1F034A004767EA /* AppDelegate.m in Sources */,
 				8DC999FA1D1F034A004767EA /* main.m in Sources */,
+				8DC99A141D1F182A004767EA /* SignUpViewController.m in Sources */,
+				8DC99A111D1F13AC004767EA /* SplashViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,6 +346,7 @@
 		};
 		8DC99A0D1D1F034A004767EA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5300E38E9D9A240265B175AB /* Pods-ghostChat.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = ghostChat/Info.plist;
@@ -272,6 +358,7 @@
 		};
 		8DC99A0E1D1F034A004767EA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 906BFCAD5E018B4C5E6B86F7 /* Pods-ghostChat.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = ghostChat/Info.plist;
@@ -300,6 +387,7 @@
 				8DC99A0E1D1F034A004767EA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
