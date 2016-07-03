@@ -7,6 +7,7 @@
 //
 
 #import "SignUpViewController.h"
+@import Firebase;
 
 @interface SignUpViewController ()
 
@@ -24,13 +25,9 @@
 }
 
 - (IBAction)submitAction:(id)sender {
-	NSDictionary *signupParams = [[NSDictionary alloc] init];
-	
 	if (self.emailTextField.text.length > 0 && self.passwordTextField.text.length > 0 && self.usernameTextField.text.length > 0) {
-		signupParams = @{@"email" : self.emailTextField.text, @"username" : self.usernameTextField.text, @"password" : self.passwordTextField.text};
 		
-		NSLog(@"signup params %@", signupParams);
-		
+		[self signupUserWithEmail:self.emailTextField.text password:self.passwordTextField.text username:self.usernameTextField.text];
 		//enter firebase code
 	} else {
 		UIAlertController *alertController = [UIAlertController
@@ -49,7 +46,43 @@
 	}
 }
 
+- (void)signupUserWithEmail:(NSString *)email password:(NSString *)password username:(NSString *)username {
+	//start a loading indicator
+	
+	[[FIRAuth auth]
+	 createUserWithEmail:email
+	 password:password
+	 completion:^(FIRUser *_Nullable user,
+				  NSError *_Nullable error) {
+		 
+		 NSLog(@"user %@ error %@", user, error);
+		 
+		 if (error != nil) {
+			 FIRUser *currentUser = [FIRAuth auth].currentUser;
+			 
+			 FIRUserProfileChangeRequest *changeRequest = [currentUser profileChangeRequest];
+			 
+			 changeRequest.displayName = username;
 
+			 [changeRequest commitChangesWithCompletion:^(NSError *_Nullable error) {
+				
+				 if (error) {
+					 NSLog(@"error %@", error.localizedDescription);
+					 // An error happened.
+				 } else {
+					 // Profile updated.
+				 }
+			 }];
+			 
+			 //account created
+		 } else {
+			 //return and show an error
+		 }
+		 
+		 //finish loading indicator
+		
+	 }];
+}
 
 
 
