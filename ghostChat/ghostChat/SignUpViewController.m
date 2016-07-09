@@ -57,7 +57,7 @@
 		 
 		 NSLog(@"user %@ error %@", user, error);
 		 
-		 if (error != nil) {
+		 if (error == nil) {
 			 FIRUser *currentUser = [FIRAuth auth].currentUser;
 			 
 			 FIRUserProfileChangeRequest *changeRequest = [currentUser profileChangeRequest];
@@ -70,17 +70,23 @@
 					 NSLog(@"error %@", error.localizedDescription);
 					 // An error happened.
 				 } else {
-					 // Profile updated.
+					 // Profile updated, now let's add all this to
 				 }
 			 }];
 			 
-			 //account created
+			 FIRDatabaseReference *databaseRef = [[FIRDatabase database] reference];
+			 
+			 FIRDatabaseReference *usersRef = [[databaseRef child:@"users"] child:currentUser.uid];
+			 
+			 NSDictionary *userInfo = @{@"uid": currentUser.uid,
+										@"username": username};
+			 
+			 [usersRef setValue:userInfo];
+			 
 		 } else {
 			 //return and show an error
 		 }
-		 
-		 //finish loading indicator
-		
+		 		
 	 }];
 }
 

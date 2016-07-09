@@ -140,7 +140,7 @@
                     <navigationItem key="navigationItem" id="rpW-ae-Z4L">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="KDD-ZT-Ela">
                             <connections>
-                                <segue destination="eiI-ag-fjv" kind="push" id="vWb-PV-D7p"/>
+                                <segue destination="XUR-d1-BEw" kind="push" id="JQQ-Uj-egx"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -148,6 +148,38 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fW6-zt-BxH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="217" y="1434"/>
+        </scene>
+        <!--Pick Recipient-->
+        <scene sceneID="OiU-A6-7fW">
+            <objects>
+                <tableViewController title="Pick Recipient" id="XUR-d1-BEw" customClass="PickRecipientTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="bj5-qO-0Vi">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="recipientCell" rowHeight="80" id="IFH-hF-J1N">
+                                <rect key="frame" x="0.0" y="92" width="320" height="80"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="IFH-hF-J1N" id="VQ3-7l-0XG">
+                                    <rect key="frame" x="0.0" y="0.0" width="287" height="79"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="XUR-d1-BEw" id="pcV-zT-mNX"/>
+                            <outlet property="delegate" destination="XUR-d1-BEw" id="oZz-hA-XFD"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="JoU-KW-FTt"/>
+                    <connections>
+                        <segue destination="eiI-ag-fjv" kind="push" id="ykB-8D-meK"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Wzd-Bd-nl3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="589" y="1434"/>
         </scene>
         <!--Create Message View Controller-->
         <scene sceneID="jWU-RO-B2H">
@@ -161,17 +193,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6fP-3A-kxF">
-                                <rect key="frame" x="108" y="74" width="105" height="30"/>
-                                <state key="normal" title="Pick a recipient"/>
-                            </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1v5-iU-sNQ">
-                                <rect key="frame" x="60" y="184" width="200" height="200"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="200" id="DQS-w4-1w1"/>
-                                    <constraint firstAttribute="height" constant="200" id="Jcp-yp-7f0"/>
-                                </constraints>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H7O-Vr-J4s">
                                 <rect key="frame" x="110" y="508" width="101" height="30"/>
                                 <state key="normal" title="Send message"/>
@@ -181,15 +202,20 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1v5-iU-sNQ">
+                                <rect key="frame" x="60" y="184" width="200" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="DQS-w4-1w1"/>
+                                    <constraint firstAttribute="height" constant="200" id="Jcp-yp-7f0"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="1v5-iU-sNQ" firstAttribute="centerX" secondItem="Bk1-nF-muI" secondAttribute="centerX" id="2Xi-69-ZI4"/>
-                            <constraint firstItem="1v5-iU-sNQ" firstAttribute="top" secondItem="6fP-3A-kxF" secondAttribute="bottom" constant="80" id="4Ot-nc-EQi"/>
                             <constraint firstItem="H7O-Vr-J4s" firstAttribute="centerX" secondItem="Bk1-nF-muI" secondAttribute="centerX" id="FdM-6I-BUV"/>
                             <constraint firstItem="1v5-iU-sNQ" firstAttribute="centerY" secondItem="Bk1-nF-muI" secondAttribute="centerY" id="LlQ-La-GkU"/>
                             <constraint firstItem="WEf-Mp-wt6" firstAttribute="centerX" secondItem="1v5-iU-sNQ" secondAttribute="centerX" id="QHb-OO-JeW"/>
-                            <constraint firstItem="6fP-3A-kxF" firstAttribute="centerX" secondItem="Bk1-nF-muI" secondAttribute="centerX" id="dJv-0l-3wg"/>
                             <constraint firstItem="WEf-Mp-wt6" firstAttribute="top" secondItem="1v5-iU-sNQ" secondAttribute="bottom" constant="40" id="lo3-oq-Epm"/>
                             <constraint firstItem="iDC-Hd-2Iq" firstAttribute="top" secondItem="H7O-Vr-J4s" secondAttribute="bottom" constant="30" id="xML-zD-wk7"/>
                         </constraints>
@@ -198,7 +224,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R73-eA-KYJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="577" y="1434"/>
+            <point key="canvasLocation" x="950" y="1434"/>
         </scene>
         <!--Sign Up View-->
         <scene sceneID="Vct-zj-ams">

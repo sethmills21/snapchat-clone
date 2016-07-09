@@ -12,6 +12,7 @@
 		8D0AA7C71D29872900748788 /* VerifySessionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D0AA7C61D29872900748788 /* VerifySessionViewController.m */; };
 		8D0AA7CA1D298AE200748788 /* HomeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D0AA7C91D298AE200748788 /* HomeTableViewController.m */; };
 		8D0AA7CD1D298AF400748788 /* CreateMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D0AA7CC1D298AF400748788 /* CreateMessageViewController.m */; };
+		8D81DB6B1D316BB800B2E054 /* PickRecipientTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D81DB6A1D316BB800B2E054 /* PickRecipientTableViewController.m */; };
 		8DC999FA1D1F034A004767EA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC999F91D1F034A004767EA /* main.m */; };
 		8DC999FD1D1F034A004767EA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC999FC1D1F034A004767EA /* AppDelegate.m */; };
 		8DC99A031D1F034A004767EA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8DC99A011D1F034A004767EA /* Main.storyboard */; };
@@ -32,6 +33,8 @@
 		8D0AA7C91D298AE200748788 /* HomeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeTableViewController.m; sourceTree = "<group>"; };
 		8D0AA7CB1D298AF400748788 /* CreateMessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateMessageViewController.h; sourceTree = "<group>"; };
 		8D0AA7CC1D298AF400748788 /* CreateMessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateMessageViewController.m; sourceTree = "<group>"; };
+		8D81DB691D316BB800B2E054 /* PickRecipientTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PickRecipientTableViewController.h; sourceTree = "<group>"; };
+		8D81DB6A1D316BB800B2E054 /* PickRecipientTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PickRecipientTableViewController.m; sourceTree = "<group>"; };
 		8DC999F51D1F034A004767EA /* ghostChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ghostChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DC999F91D1F034A004767EA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8DC999FB1D1F034A004767EA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -108,6 +111,8 @@
 				8D0AA7C91D298AE200748788 /* HomeTableViewController.m */,
 				8D0AA7CB1D298AF400748788 /* CreateMessageViewController.h */,
 				8D0AA7CC1D298AF400748788 /* CreateMessageViewController.m */,
+				8D81DB691D316BB800B2E054 /* PickRecipientTableViewController.h */,
+				8D81DB6A1D316BB800B2E054 /* PickRecipientTableViewController.m */,
 			);
 			path = ghostChat;
 			sourceTree = "<group>";
@@ -259,6 +264,7 @@
 				8D0AA7C71D29872900748788 /* VerifySessionViewController.m in Sources */,
 				8D0AA7CA1D298AE200748788 /* HomeTableViewController.m in Sources */,
 				8DC99A141D1F182A004767EA /* SignUpViewController.m in Sources */,
+				8D81DB6B1D316BB800B2E054 /* PickRecipientTableViewController.m in Sources */,
 				8DC99A111D1F13AC004767EA /* SplashViewController.m in Sources */,
 				8D0AA7C41D2985BB00748788 /* LoginViewController.m in Sources */,
 			);
