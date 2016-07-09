@@ -7,6 +7,7 @@
 //
 
 #import "HomeTableViewController.h"
+@import Firebase;
 
 @interface HomeTableViewController ()
 
@@ -22,6 +23,8 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+	
+	[self loadFirebaseDB];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -29,6 +32,44 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)loadFirebaseDB {
+	FIRUser *currentUser = [FIRAuth auth].currentUser;
+	
+	FIRDatabaseReference *databaseRef = [[FIRDatabase database] reference];
+	
+	NSString *key = [[databaseRef child:@"messages"] childByAutoId].key;
+	NSDictionary *message = @{@"uid": currentUser.uid,
+						   @"recipient": currentUser.uid,
+						   @"title": @"test"};
+	
+	NSDictionary *childUpdates = @{[@"/messages/" stringByAppendingString:key]: message, [NSString stringWithFormat:@"/user-messages/%@/%@", currentUser.uid, key] : message};
+	
+	[databaseRef updateChildValues:childUpdates];
+	
+	[self getMessages];
+}
+
+- (void)getMessages {
+	NSString *userID = [FIRAuth auth].currentUser.uid;
+	
+	FIRDatabaseReference *databaseRef = [[FIRDatabase database] reference];
+	
+	FIRDatabaseQuery *messagesQuery = [[databaseRef child:@"user-messages"]
+										  child:userID];
+	
+	NSLog(@"my top posts query %@", messagesQuery.ref);
+	
+	FIRDatabaseReference *ref = messagesQuery.ref;
+	
+	[ref observeEventType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot *snapshot) {
+		
+		NSDictionary *dict = snapshot.value;
+		NSString *key = snapshot.key;
+		
+		NSLog(@"key = %@ for child %@", key, dict);
+	}];
+
+}
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {

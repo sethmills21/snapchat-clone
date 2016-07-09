@@ -107,7 +107,7 @@
                     <navigationItem key="navigationItem" id="dhb-ll-2eo"/>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="push" identifier="pushToSplashViewSegue" id="TbI-nL-ToY"/>
-                        <segue destination="WX4-Gf-cwb" kind="push" id="U9M-Up-OdU"/>
+                        <segue destination="WX4-Gf-cwb" kind="push" identifier="pushToHomeViewSegue" id="U9M-Up-OdU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZjC-2E-UVe" sceneMemberID="firstResponder"/>
@@ -117,7 +117,7 @@
         <!--Home Table View Controller-->
         <scene sceneID="M3y-MF-Q78">
             <objects>
-                <tableViewController id="WX4-Gf-cwb" customClass="HomeTableViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="homeVC" id="WX4-Gf-cwb" customClass="HomeTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="s5D-nM-yPK">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
