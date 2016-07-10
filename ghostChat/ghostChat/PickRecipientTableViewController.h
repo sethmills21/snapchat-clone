@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PickRecipientTableViewController : UITableViewController
+@interface PickRecipientTableViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource>
 
 @end

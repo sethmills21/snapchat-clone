@@ -13,6 +13,7 @@
 		8D0AA7CA1D298AE200748788 /* HomeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D0AA7C91D298AE200748788 /* HomeTableViewController.m */; };
 		8D0AA7CD1D298AF400748788 /* CreateMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D0AA7CC1D298AF400748788 /* CreateMessageViewController.m */; };
 		8D81DB6B1D316BB800B2E054 /* PickRecipientTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D81DB6A1D316BB800B2E054 /* PickRecipientTableViewController.m */; };
+		8DC6124F1D32C06900EE22DA /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DC6124E1D32C06900EE22DA /* MobileCoreServices.framework */; };
 		8DC999FA1D1F034A004767EA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC999F91D1F034A004767EA /* main.m */; };
 		8DC999FD1D1F034A004767EA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC999FC1D1F034A004767EA /* AppDelegate.m */; };
 		8DC99A031D1F034A004767EA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8DC99A011D1F034A004767EA /* Main.storyboard */; };
@@ -35,6 +36,7 @@
 		8D0AA7CC1D298AF400748788 /* CreateMessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateMessageViewController.m; sourceTree = "<group>"; };
 		8D81DB691D316BB800B2E054 /* PickRecipientTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PickRecipientTableViewController.h; sourceTree = "<group>"; };
 		8D81DB6A1D316BB800B2E054 /* PickRecipientTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PickRecipientTableViewController.m; sourceTree = "<group>"; };
+		8DC6124E1D32C06900EE22DA /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		8DC999F51D1F034A004767EA /* ghostChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ghostChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DC999F91D1F034A004767EA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8DC999FB1D1F034A004767EA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -57,6 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8DC6124F1D32C06900EE22DA /* MobileCoreServices.framework in Frameworks */,
 				6545DF129A24C14387B33561 /* libPods-ghostChat.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -67,6 +70,7 @@
 		15AD57871A47336863179E39 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8DC6124E1D32C06900EE22DA /* MobileCoreServices.framework */,
 				E4C0D21738A5414523291DC9 /* libPods-ghostChat.a */,
 			);
 			name = Frameworks;

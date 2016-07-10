@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CreateMessageViewController : UIViewController
+@interface CreateMessageViewController : UIViewController <UIImagePickerControllerDelegate>
+
+@property (strong, nonatomic) NSDictionary *recipientInfo;
 
 @end

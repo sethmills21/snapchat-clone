@@ -7,6 +7,8 @@
 //
 
 #import "PickRecipientTableViewController.h"
+#import "CreateMessageViewController.h"
+
 @import Firebase;
 
 @interface PickRecipientTableViewController ()
@@ -63,6 +65,13 @@
 	return self.recipientsArray.count;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+	if (self.recipientsArray == nil || self.recipientsArray.count == 0) {
+		return;
+	}
+	
+	[self performSegueWithIdentifier:@"pushToMessageViewController" sender:self];
+}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 	
@@ -72,7 +81,7 @@
 	
 	if (self.recipientsArray == nil) {
 		cell.textLabel.text = @"Loading";
-		cell.textLabel.textAlignment = NSTextAlignmentLeft;
+		cell.textLabel.textAlignment = NSTextAlignmentCenter;
 		cell.accessoryType = UITableViewCellAccessoryNone;
 		return cell;
 	}
@@ -81,11 +90,14 @@
 	
 	if (self.recipientsArray.count == 0) {
 		cell.textLabel.text = @"Sorry, there are no users to send a message to :(";
+		cell.textLabel.textAlignment = NSTextAlignmentCenter;
 		cell.accessoryType = UITableViewCellAccessoryNone;
 		return cell;
 	}
 	
 	NSDictionary *recipientInfo = [self.recipientsArray objectAtIndex:indexPath.row];
+	
+	cell.textLabel.textAlignment = NSTextAlignmentLeft;
 	
 	cell.textLabel.text = [recipientInfo objectForKey:@"username"];
 	
@@ -95,14 +107,16 @@
 }
 
 
-/*
+
 #pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+	if ([segue.identifier isEqualToString:@"pushToMessageViewController"] == YES) {
+		CreateMessageViewController *messageViewController = (CreateMessageViewController *)segue.destinationViewController;
+		
+		messageViewController.recipientInfo = [self.recipientsArray objectAtIndex:self.tableView.indexPathForSelectedRow.row];
+	}
 }
-*/
+
 
 @end

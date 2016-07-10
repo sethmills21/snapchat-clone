@@ -114,20 +114,20 @@
             </objects>
             <point key="canvasLocation" x="217" y="280"/>
         </scene>
-        <!--Home Table View Controller-->
+        <!--Inbox-->
         <scene sceneID="M3y-MF-Q78">
             <objects>
                 <tableViewController storyboardIdentifier="homeVC" id="WX4-Gf-cwb" customClass="HomeTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="s5D-nM-yPK">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" sectionHeaderHeight="28" sectionFooterHeight="28" id="s5D-nM-yPK">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Jl4-4r-ySY">
-                                <rect key="frame" x="0.0" y="92" width="320" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="messageCell" rowHeight="80" id="Jl4-4r-ySY">
+                                <rect key="frame" x="0.0" y="92" width="320" height="80"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Jl4-4r-ySY" id="xQJ-8Z-fRm">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="79"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -137,7 +137,8 @@
                             <outlet property="delegate" destination="WX4-Gf-cwb" id="Wez-iI-wxb"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="rpW-ae-Z4L">
+                    <navigationItem key="navigationItem" title="Inbox" id="rpW-ae-Z4L">
+                        <barButtonItem key="backBarButtonItem" title="Inbox" id="ZcR-rw-bJq"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="KDD-ZT-Ela">
                             <connections>
                                 <segue destination="XUR-d1-BEw" kind="push" id="JQQ-Uj-egx"/>
@@ -149,11 +150,29 @@
             </objects>
             <point key="canvasLocation" x="217" y="1434"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="iR5-Li-Dg8">
+            <objects>
+                <viewController id="mXd-Q1-m9I" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="VSp-UA-t61"/>
+                        <viewControllerLayoutGuide type="bottom" id="3OW-DC-Xaq"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="bvX-0B-byv">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9PF-bf-w8G" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="217" y="2082"/>
+        </scene>
         <!--Pick Recipient-->
         <scene sceneID="OiU-A6-7fW">
             <objects>
                 <tableViewController title="Pick Recipient" id="XUR-d1-BEw" customClass="PickRecipientTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="bj5-qO-0Vi">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" sectionHeaderHeight="28" sectionFooterHeight="28" id="bj5-qO-0Vi">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -172,16 +191,18 @@
                             <outlet property="delegate" destination="XUR-d1-BEw" id="oZz-hA-XFD"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="JoU-KW-FTt"/>
+                    <navigationItem key="navigationItem" title="Recipients" id="JoU-KW-FTt">
+                        <barButtonItem key="backBarButtonItem" title="Recipients" id="xi8-MG-lKa"/>
+                    </navigationItem>
                     <connections>
-                        <segue destination="eiI-ag-fjv" kind="push" id="ykB-8D-meK"/>
+                        <segue destination="eiI-ag-fjv" kind="push" identifier="pushToMessageViewController" id="ykB-8D-meK"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wzd-Bd-nl3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="589" y="1434"/>
         </scene>
-        <!--Create Message View Controller-->
+        <!--Create Message-->
         <scene sceneID="jWU-RO-B2H">
             <objects>
                 <viewController id="eiI-ag-fjv" customClass="CreateMessageViewController" sceneMemberID="viewController">
@@ -193,10 +214,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H7O-Vr-J4s">
-                                <rect key="frame" x="110" y="508" width="101" height="30"/>
-                                <state key="normal" title="Send message"/>
-                            </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Adding a note" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WEf-Mp-wt6">
                                 <rect key="frame" x="105" y="424" width="111" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -204,11 +221,19 @@
                             </textField>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1v5-iU-sNQ">
                                 <rect key="frame" x="60" y="184" width="200" height="200"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="DQS-w4-1w1"/>
                                     <constraint firstAttribute="height" constant="200" id="Jcp-yp-7f0"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H7O-Vr-J4s">
+                                <rect key="frame" x="110" y="508" width="101" height="30"/>
+                                <state key="normal" title="Send message"/>
+                                <connections>
+                                    <action selector="sendAction:" destination="eiI-ag-fjv" eventType="touchUpInside" id="n2M-as-Sdr"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -220,7 +245,12 @@
                             <constraint firstItem="iDC-Hd-2Iq" firstAttribute="top" secondItem="H7O-Vr-J4s" secondAttribute="bottom" constant="30" id="xML-zD-wk7"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="LzW-Z6-XyD"/>
+                    <navigationItem key="navigationItem" title="Create Message" id="LzW-Z6-XyD"/>
+                    <connections>
+                        <outlet property="messageImageView" destination="1v5-iU-sNQ" id="MwF-vo-viL"/>
+                        <outlet property="messageTextField" destination="WEf-Mp-wt6" id="aMm-9a-uHB"/>
+                        <outlet property="sendMessageButton" destination="H7O-Vr-J4s" id="35J-90-MHe"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R73-eA-KYJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
