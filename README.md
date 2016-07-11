@@ -4,7 +4,7 @@
 
 # Ghostchat - a Snapchat clone
 
-A snapchat clone developed in Objective-C that leverages Firebase as a backend. This is the final codebase for the tutorial course (here) which contains snippets helpful to those going through the course. 
+An iOS snapchat clone developed in Objective-C that leverages Firebase as a backend. This is the final codebase for the CodeUpStart tutorial course which you can find (here).
 
 ## Table of contents
 
