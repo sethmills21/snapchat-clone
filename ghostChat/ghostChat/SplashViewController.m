@@ -7,6 +7,7 @@
 //
 
 #import "SplashViewController.h"
+@import QuartzCore;
 
 @interface SplashViewController ()
 
@@ -19,6 +20,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+	
+	self.signUpButton.clipsToBounds = YES;
+	self.signUpButton.layer.cornerRadius = self.signUpButton.frame.size.height/2;
+	self.signUpButton.layer.borderWidth = 2;
+	self.signUpButton.layer.borderColor = [UIColor whiteColor].CGColor;
+	
+	self.loginButton.clipsToBounds = YES;
+	self.loginButton.layer.cornerRadius = self.signUpButton.frame.size.height/2;
+	self.loginButton.layer.borderWidth = 2;
+	self.loginButton.layer.borderColor = [UIColor whiteColor].CGColor;
 }
 
 - (void)viewWillAppear:(BOOL)animated {

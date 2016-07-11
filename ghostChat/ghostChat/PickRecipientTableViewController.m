@@ -67,6 +67,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 	if (self.recipientsArray == nil || self.recipientsArray.count == 0) {
+		[self.tableView deselectRowAtIndexPath:indexPath animated:YES];
 		return;
 	}
 	

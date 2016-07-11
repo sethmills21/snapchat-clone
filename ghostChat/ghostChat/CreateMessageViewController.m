@@ -17,6 +17,7 @@
 @property (strong, nonatomic) IBOutlet UIImageView *messageImageView;
 @property (strong, nonatomic) IBOutlet UITextField *messageTextField;
 @property (strong, nonatomic) IBOutlet UIButton *sendMessageButton;
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *loadingIndicator;
 
 @end
 
@@ -29,6 +30,36 @@
 	
 	self.messageImageView.userInteractionEnabled = YES;
 	[self.messageImageView addGestureRecognizer:tapPicture];
+	
+	self.navigationItem.title = self.recipientInfo[@"username"];
+	
+	self.sendMessageButton.clipsToBounds = YES;
+	self.sendMessageButton.layer.cornerRadius = self.sendMessageButton.frame.size.height/2;
+	self.sendMessageButton.layer.borderWidth = 2;
+	self.sendMessageButton.layer.borderColor = [UIColor colorWithRed:1 green:0.576 blue:0 alpha:1].CGColor;
+	
+	[self addKeyboardToolbar];
+}
+
+- (void)addKeyboardToolbar {
+	UIToolbar *toolbar = [[UIToolbar alloc] init];
+	[toolbar setBarStyle:UIBarStyleDefault];
+	[toolbar sizeToFit];
+
+	UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(resignKeyboard)];
+	doneButton.tintColor = [UIColor orangeColor];
+	
+	UIBarButtonItem *flexButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil];
+	
+	NSArray *itemsArray = [NSArray arrayWithObjects:flexButton, doneButton, nil];
+	
+	[toolbar setItems:itemsArray];
+	
+	[self.messageTextField setInputAccessoryView:toolbar];
+}
+
+- (void)resignKeyboard {
+	[self.messageTextField endEditing:YES];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -71,17 +102,44 @@
 	
 	[imagesRef putData:imageData metadata:metadata completion:^(FIRStorageMetadata * _Nullable metadata, NSError * _Nullable error) {
 		if (error != nil) {
-			NSLog(@"error %@", error);
+			NSLog(@"error %@, show error", error);
+			
+			[self finishUploadingState];
+
 			return;
 		}
 		
 		NSLog(@"success! metadata %@", metadata);
+		
+		[self finishUploadingState];
+		
+		[self popToHomeViewController];
 			
 	}];
 }
 
+- (void)showUploadingState {
+	[self.sendMessageButton setTitle:@"" forState:UIControlStateNormal];
+	[self.loadingIndicator startAnimating];
+	
+	self.sendMessageButton.userInteractionEnabled = NO;
+	self.messageImageView.userInteractionEnabled = NO;
+	self.messageTextField.userInteractionEnabled = NO;
+}
+
+- (void)finishUploadingState {
+	[self.sendMessageButton setTitle:@"Send" forState:UIControlStateNormal];
+
+	[self.loadingIndicator stopAnimating];
+	
+	self.sendMessageButton.userInteractionEnabled = YES;
+	self.messageImageView.userInteractionEnabled = YES;
+	self.messageTextField.userInteractionEnabled = YES;
+}
+
 - (IBAction)sendAction:(id)sender {
 	[self saveMessageToFirebase];
+	[self showUploadingState];
 }
 
 - (void)choosePicture {

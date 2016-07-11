@@ -8,6 +8,8 @@
 
 #import "HomeTableViewController.h"
 #import "MessageViewController.h"
+#import "SplashViewController.h"
+
 @import Firebase;
 
 @interface HomeTableViewController ()
@@ -25,6 +27,20 @@
 	[self getMessages];
 }
 
+- (IBAction)logoutAction:(id)sender {
+	NSError *error;
+	[[FIRAuth auth] signOut:&error];
+	
+	if (error == nil) {
+		UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+		
+		SplashViewController *splashViewController = [storyboard instantiateViewControllerWithIdentifier:@"splashViewController"];
+		
+		[self.navigationController setViewControllers:@[splashViewController] animated:YES];
+	}
+}
+
+
 - (void)getMessages {
 	NSString *userID = [FIRAuth auth].currentUser.uid;
 	
@@ -38,6 +54,12 @@
 		NSDictionary *queryResult = snapshot.value;
 			
 		self.messagesArray = [NSMutableArray array];
+		
+		if ([queryResult isKindOfClass:[NSNull class]] == YES) {
+			[self.tableView reloadData];
+			return;
+		}
+		
 		self.messagesArray = [[queryResult allValues] mutableCopy];
 		
 		self.keysArray = [[queryResult allKeys] mutableCopy];
@@ -47,8 +69,6 @@
 }
 
 #pragma mark - Table view data source
-
-
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
@@ -64,6 +84,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 	if (self.messagesArray == nil || self.messagesArray.count == 0) {
+		[self.tableView deselectRowAtIndexPath:indexPath animated:YES];
 		return;
 	}
 	
@@ -87,7 +108,7 @@
 	//check if there are zero users
 	
 	if (self.messagesArray.count == 0) {
-		cell.textLabel.text = @"Sorry, there are no users to send a message to :(";
+		cell.textLabel.text = @"Sorry, you have no messages :(";
 		cell.textLabel.textAlignment = NSTextAlignmentCenter;
 		cell.accessoryType = UITableViewCellAccessoryNone;
 		return cell;

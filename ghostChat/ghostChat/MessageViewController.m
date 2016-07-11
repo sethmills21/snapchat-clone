@@ -31,7 +31,8 @@
 
 - (void)setupInterface {
 	self.messageTextLabel.text = [self.messageInfo objectForKey:@"messageText"];
-	self.fromLabel.text = [NSString stringWithFormat:@"From: %@", [self.messageInfo objectForKey:@"senderUsername"]];
+	
+	self.navigationItem.title = [NSString stringWithFormat:@"%@", [self.messageInfo objectForKey:@"senderUsername"]];
 	
 	[self getImageFromFirebase];
 	

@@ -8,6 +8,7 @@
 
 #import "SignUpViewController.h"
 @import Firebase;
+@import QuartzCore;
 
 @interface SignUpViewController ()
 
@@ -22,6 +23,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+	
+	self.submitButton.clipsToBounds = YES;
+	self.submitButton.layer.cornerRadius = self.submitButton.frame.size.height/2;
+	self.submitButton.layer.borderWidth = 2;
+	self.submitButton.layer.borderColor = [UIColor whiteColor].CGColor;
 }
 
 - (IBAction)submitAction:(id)sender {
@@ -47,8 +53,6 @@
 }
 
 - (void)signupUserWithEmail:(NSString *)email password:(NSString *)password username:(NSString *)username {
-	//start a loading indicator
-	
 	[[FIRAuth auth]
 	 createUserWithEmail:email
 	 password:password
@@ -63,16 +67,6 @@
 			 FIRUserProfileChangeRequest *changeRequest = [currentUser profileChangeRequest];
 			 
 			 changeRequest.displayName = username;
-
-			 [changeRequest commitChangesWithCompletion:^(NSError *_Nullable error) {
-				
-				 if (error) {
-					 NSLog(@"error %@", error.localizedDescription);
-					 // An error happened.
-				 } else {
-					 // Profile updated, now let's add all this to
-				 }
-			 }];
 			 
 			 FIRDatabaseReference *databaseRef = [[FIRDatabase database] reference];
 			 
@@ -82,12 +76,30 @@
 										@"username": username};
 			 
 			 [usersRef setValue:userInfo];
-			 
+
+			 [changeRequest commitChangesWithCompletion:^(NSError *_Nullable error) {
+				
+				 if (error) {
+					 NSLog(@"error %@", error.localizedDescription);
+				} else {
+					 [self performSegueWithIdentifier:@"pushToInboxFromSignup" sender:self];
+				}
+			 }];
 		 } else {
-			 //return and show an error
+			 [self showAlertController:error.localizedDescription];
 		 }
 		 		
 	 }];
+}
+
+- (void)showAlertController:(NSString *)errorMessage {
+	UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Oops" message:errorMessage preferredStyle:UIAlertControllerStyleAlert];
+	
+	UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:nil];
+	
+	[alertController addAction:okAction];
+	
+	[self presentViewController:alertController animated:YES completion:nil];
 }
 
 

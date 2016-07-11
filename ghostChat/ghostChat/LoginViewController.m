@@ -13,6 +13,7 @@
 
 @property (strong, nonatomic) IBOutlet UITextField *emailTextField;
 @property (strong, nonatomic) IBOutlet UITextField *passwordTextField;
+@property (strong, nonatomic) IBOutlet UIButton *loginButton;
 
 @end
 
@@ -28,6 +29,11 @@
 
 - (IBAction)submitAction:(id)sender {
 	[self signinWithEmail];
+	
+	self.loginButton.clipsToBounds = YES;
+	self.loginButton.layer.cornerRadius = self.loginButton.frame.size.height/2;
+	self.loginButton.layer.borderWidth = 2;
+	self.loginButton.layer.borderColor = [UIColor whiteColor].CGColor;
 }
 
 - (void)signinWithEmail {
@@ -35,11 +41,21 @@
 						   password:self.passwordTextField.text
 						 completion:^(FIRUser *user, NSError *error) {
 							 if (error != nil) {
-								 NSLog(@"successful login!");
+								 [self showAlertController];
 							 } else {
-								 NSLog(@"error %@", error.localizedDescription);
+								 [self performSegueWithIdentifier:@"pushToInboxFromLogin" sender:self];
 							 }
 						 }];
+}
+
+- (void)showAlertController {
+	UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Oops" message:@"Invalid credentials" preferredStyle:UIAlertControllerStyleAlert];
+	
+	UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:nil];
+	
+	[alertController addAction:okAction];
+
+	[self presentViewController:alertController animated:YES completion:nil];
 }
 
 
