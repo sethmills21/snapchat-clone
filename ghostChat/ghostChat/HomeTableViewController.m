@@ -7,9 +7,13 @@
 //
 
 #import "HomeTableViewController.h"
+#import "MessageViewController.h"
 @import Firebase;
 
 @interface HomeTableViewController ()
+
+@property (nonatomic, strong) NSMutableArray *messagesArray;
+@property (nonatomic, strong) NSMutableArray *keysArray;
 
 @end
 
@@ -17,86 +21,102 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 	
-	//[self loadFirebaseDB];
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+	[self getMessages];
 }
 
 - (void)getMessages {
-
+	NSString *userID = [FIRAuth auth].currentUser.uid;
+	
+	FIRDatabaseReference *databaseRef = [[FIRDatabase database] reference];
+	
+	FIRDatabaseQuery *messagesQuery = [[databaseRef child:@"messages"] child:userID];
+	
+	FIRDatabaseReference *ref = messagesQuery.ref;
+	
+	[ref observeEventType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
+		NSDictionary *queryResult = snapshot.value;
+			
+		self.messagesArray = [NSMutableArray array];
+		self.messagesArray = [[queryResult allValues] mutableCopy];
+		
+		self.keysArray = [[queryResult allKeys] mutableCopy];
+		
+		[self.tableView reloadData];
+	}];
 }
+
 #pragma mark - Table view data source
+
+
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 0;
+	if (self.messagesArray == nil || self.messagesArray.count == 0) {
+		return 1;
+	}
+	
+	return self.messagesArray.count;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+	if (self.messagesArray == nil || self.messagesArray.count == 0) {
+		return;
+	}
+	
+	[self performSegueWithIdentifier:@"pushToViewMessage" sender:self];
 }
 
 
-//- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
-//    
-//    // Configure the cell...
-//    
-//    return cell;
-//}
-
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+	
+	UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"messageCell"];
+	
+	//check if we're loading recipients
+	
+	if (self.messagesArray == nil) {
+		cell.textLabel.text = @"Loading";
+		cell.textLabel.textAlignment = NSTextAlignmentCenter;
+		cell.accessoryType = UITableViewCellAccessoryNone;
+		return cell;
+	}
+	
+	//check if there are zero users
+	
+	if (self.messagesArray.count == 0) {
+		cell.textLabel.text = @"Sorry, there are no users to send a message to :(";
+		cell.textLabel.textAlignment = NSTextAlignmentCenter;
+		cell.accessoryType = UITableViewCellAccessoryNone;
+		return cell;
+	}
+	
+	NSDictionary *messageInfo = [self.messagesArray objectAtIndex:indexPath.row];
+	
+	cell.textLabel.textAlignment = NSTextAlignmentLeft;
+	
+	cell.textLabel.text = [messageInfo objectForKey:@"messageText"];
+	
+	cell.detailTextLabel.text = [messageInfo objectForKey:@"senderUsername"];
+	
+	cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+	
+	return cell;
 }
-*/
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+	if ([segue.identifier isEqualToString:@"pushToViewMessage"] == YES) {
+		MessageViewController *messageViewController = (MessageViewController *)segue.destinationViewController;
+		
+		messageViewController.messageInfo = [self.messagesArray objectAtIndex:self.tableView.indexPathForSelectedRow.row];
+		messageViewController.messageKey = [self.keysArray objectAtIndex:self.tableView.indexPathForSelectedRow.row];
+	}
 }
-*/
+
 
 @end

@@ -145,15 +145,18 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="mXd-Q1-m9I" kind="push" identifier="pushToViewMessage" id="fAq-vM-fg2"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fW6-zt-BxH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="217" y="1434"/>
         </scene>
-        <!--View Controller-->
+        <!--View Message-->
         <scene sceneID="iR5-Li-Dg8">
             <objects>
-                <viewController id="mXd-Q1-m9I" sceneMemberID="viewController">
+                <viewController id="mXd-Q1-m9I" customClass="MessageViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="VSp-UA-t61"/>
                         <viewControllerLayoutGuide type="bottom" id="3OW-DC-Xaq"/>
@@ -161,8 +164,43 @@
                     <view key="view" contentMode="scaleToFill" id="bvX-0B-byv">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lZS-bZ-o1G">
+                                <rect key="frame" x="60" y="184" width="200" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="4uO-MW-e6A"/>
+                                    <constraint firstAttribute="height" constant="200" id="nmt-m9-Sv1"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="From label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ibp-My-31x">
+                                <rect key="frame" x="16" y="84" width="80" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eM9-zN-A3c">
+                                <rect key="frame" x="139" y="431" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="lZS-bZ-o1G" firstAttribute="centerX" secondItem="bvX-0B-byv" secondAttribute="centerX" id="3cV-BO-Vqg"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="ibp-My-31x" secondAttribute="leading" id="9Y2-uK-Ta6"/>
+                            <constraint firstItem="eM9-zN-A3c" firstAttribute="centerX" secondItem="bvX-0B-byv" secondAttribute="centerX" id="Jdf-1F-51L"/>
+                            <constraint firstItem="lZS-bZ-o1G" firstAttribute="centerY" secondItem="bvX-0B-byv" secondAttribute="centerY" id="QYC-ob-1wu"/>
+                            <constraint firstItem="ibp-My-31x" firstAttribute="top" secondItem="VSp-UA-t61" secondAttribute="bottom" constant="20" id="afN-fS-HUi"/>
+                            <constraint firstItem="eM9-zN-A3c" firstAttribute="top" secondItem="lZS-bZ-o1G" secondAttribute="bottom" constant="47" id="pRu-jP-0fB"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="View Message" id="5SD-2J-aAg"/>
+                    <connections>
+                        <outlet property="fromLabel" destination="ibp-My-31x" id="tVH-hS-NJs"/>
+                        <outlet property="messageImageView" destination="lZS-bZ-o1G" id="ZKX-81-Yi2"/>
+                        <outlet property="messageTextLabel" destination="eM9-zN-A3c" id="AWq-fC-4QM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9PF-bf-w8G" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

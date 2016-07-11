@@ -12,4 +12,5 @@
 
 @property (strong, nonatomic) NSDictionary *recipientInfo;
 
+
 @end

@@ -8,6 +8,8 @@
 
 #import "CreateMessageViewController.h"
 #import <MobileCoreServices/MobileCoreServices.h>
+#import "HomeTableViewController.h"
+
 @import Firebase;
 
 @interface CreateMessageViewController ()
@@ -84,6 +86,16 @@
 
 - (void)choosePicture {
 	[self chooseMessagePicture];
+}
+
+- (void)popToHomeViewController {
+	NSMutableArray *allViewControllers = [NSMutableArray arrayWithArray:self.navigationController.viewControllers];
+	
+	for (UIViewController *aViewController in allViewControllers) {
+		if ([aViewController isKindOfClass:[HomeTableViewController class]]) {
+			[self.navigationController popToViewController:aViewController animated:YES];
+		}
+	}
 }
 
 #pragma mark - image view picker code
