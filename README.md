@@ -10,31 +10,18 @@ An iOS snapchat clone developed in Objective-C that leverages Firebase as a back
 
 - [Course Info](#course-info)
 - [Student Resources](#student-resources)
-    - [Setting up your project](#setting-up-your-project) 
-    - [Awesome links for iOS devs](#links)
-- [Contributing](#contributing)
+    - [Video 02](#video-02) 
 - [License](#license)
 
 ## Course Info
 
 ## Student Resources
 
-### Setting up your project
+### Video 02 - 
 
-TODO: Write setup instructions
-
-### Links
-* [Mill's Blog](https://millsblog.com)
-
-## Contributing
-
-Totally open to collabs to make this project better! For the sake of the course, we'll probably keep the Master branch inline with the course but we can dupe this repo or make a primary fork if there's enough interest to advance the app. 
-
-If you're planning on contributing - please use git-flow (link).
-
-1. Create a feature branch
-2. Commit your changes and push to origin
-3. Submit to pull request
+```objective-c
+[self viewDidLoad];
+```
 
 ## License
 
