@@ -28,7 +28,7 @@ An iOS snapchat clone developed in Objective-C that leverages Firebase as a back
 
 Don't ever play yourself...try and only use the [Source Code](https://google.com) for reference :) 
 
-To run project:
+To run the project:
 * drag the GoogleService-Info.plist you downloaded from the Firebase websole into the Supporting files folder of the project
 * cd to directory of the project and run 'pod install'
 * open up the workspace
