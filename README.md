@@ -13,8 +13,8 @@ An iOS snapchat clone developed in Objective-C that leverages Firebase as a back
     - [Full Source Code](#source-code) 
     - [Image Picker Code](#image-picker-code) 
     - [Add Done Button to Keyboard](#add-done-button-to-keyboard)
-    - [Awesome Resources](#awesome-resources)
-- [Connect with the Instructor](#connect-with-the-instructor);
+- [More Resources](#awesome-resources)
+- [Connect with the Instructor](#connect-with-the-instructor)
 
 ## Course Info
 
@@ -149,7 +149,7 @@ To run project:
 }
 ```
 
-### Awesome Resources 
+## More Resources 
 
 These are some resources that I've found super helpful while developing several different iOS projects. Figured it'd be worth sharing for reference when you go to build your own apps!
 
