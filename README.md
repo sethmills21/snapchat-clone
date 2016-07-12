@@ -4,16 +4,17 @@
 
 # Ghostchat - a Snapchat clone
 
-An iOS snapchat clone developed in Objective-C that leverages Firebase as a backend. This is the final codebase for the CodeUpStart tutorial course which you can find (here).
+An iOS snapchat clone developed in Objective-C that leverages Firebase as a backend. This is the documentation for the CodeUpStart course which can you find here. The course guides student from start to finish on how to create an app like Snapchat regardless of your coding expertise! 
 
 ## Table of contents
 
 - [Course Info](#course-info)
 - [Student Resources](#student-resources)
-    - [Full Source code](#source-code) 
-    - [Image picker code](#image-picker-code) 
+    - [Full Source Code](#source-code) 
+    - [Image Picker Code](#image-picker-code) 
     - [Add Done Button to Keyboard](#add-done-button-to-keyboard)
-- [License](#license)
+    - [Awesome Resources](#awesome-resources)
+- [Connect with the Instructor](#connect-with-the-instructor);
 
 ## Course Info
 
@@ -148,8 +149,46 @@ To run project:
 }
 ```
 
+### Awesome Resources 
 
+These are some resources that I've found super helpful while developing several different iOS projects. Figured it'd be worth sharing for reference when you go to build your own apps!
 
-## License
+Nice tools
 
-TODO: Write license
+* [LaunchKit](https://launchkit.io/screenshots/) - LaunchKit helps you easily create beautiful app store screenshot images. LaunchKit can also help you montior reviews.
+
+* [MakeAppIcon](https://makeappicon.com/) - I referenced this tool in one of the course videos. MakeAppIcon will automatically slice and dice your app icon image asset to iOS and even Android's specs
+
+Analytics
+
+* [Amplitude](https://amplitude.com/settings/) - Currently my favorite analytics platform. It's free and comes with everything you need. However, if you're going to leverage Firebase for your apps - they also have an [analytics tool](https://firebase.google.com/docs/analytics/) that you'd most likely want to use instead. Analytics is a CLUTCH part of app building so make sure to read up on mobile growth / analytics. 
+
+* [ARRRR Analytics Framework](http://www.slideshare.net/dmc500hats/startup-metrics-for-pirates-long-version) - If you're not familiar with analytics or how to track meaningful user behavior, this is a great place to start as it's one of the most widely used and accepted growth frameworks in the game. 
+
+Libraries 
+
+* [AFNetworking](https://github.com/AFNetworking/AFNetworking) - One of the greatest libraries ever created, AFNetworking will make all your networking (HTTP POSTS, GETS, etc) operations stupid simple.
+
+* [IQKeyboardManager](https://github.com/hackiftekhar/IQKeyboardManager) - Remember that video when I mentioned the issues you can run into when the keyboard shows? Well, you can drop this library in your project and it will take care all fo that. You don't need even need to write any code, it works automatically (note, that almost always things that sound like this never pan out that way but this library has 6,000+ stars so safe to say it's verified). I've also used it before and can vouch for it. 
+
+* [PageMenu](https://github.com/HighBay/PageMenu) - Easily create "paging" menus that hold view controllers so you can swipe through them.
+
+* [TTRangeSlider](https://github.com/TomThorpe/TTRangeSlider) - A handy slider similar to UISlider that lets you pick min/max ranges (easy to customize too)
+
+Good places to score knowledge on product/growth/apps/startups
+
+* [GrowthHackers](https://growthhackers.com/) - a reddit/hackernews style community of growth people posting articles, learnings, etc. They also just launched a really cool called Projects. 
+
+* [Growth Bug Medium Publication](https://growthbug.com/?source=search_collection) - medium publication with lots of good posts on mobile
+
+* [Mobile Growth Medium Publication](https://medium.com/mobile-growth) - another great pub on Medium that features app developers and product managers learnings
+
+* [Greylock Partners Medium Publication](https://news.greylock.com/the-hierarchy-of-engagement-5803bf4e6cfa#.7tc7riuxh) - linked to a specific post in Greylock's publication from Sarah Tavel, a partner there that outlines a concept called the 'The Hierarchy of Engagement' that's pretty awesome. Josh Elman, another partner @ Greylock is also a good name to google for content as he lead growth @ various startups like LinkedIn and Twitter.
+
+* [Andrew Chen's Blog](http://andrewchen.co/) - legendary essays on product, growth, etc. 
+
+* [Paul Graham's Blog](http://paulgraham.com/) - more legendary essays
+
+## Connect with the Instructor
+*email - seth@rapchat.me
+*[twitter](https://twitter.com/@sethmills21)
