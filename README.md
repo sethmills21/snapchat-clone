@@ -14,7 +14,7 @@ An iOS snapchat clone developed in Objective-C that leverages Firebase as a back
     - [Image Picker Code](#image-picker-code) 
     - [Add Done Button to Keyboard](#add-done-button-to-keyboard)
 - [More Resources](#awesome-resources)
-- [Connect with the Instructor](#connect-with-the-instructor)
+- [Connect with me](#connect-with-the-instructor)
 
 ## Course Info
 
