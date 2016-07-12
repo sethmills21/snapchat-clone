@@ -10,14 +10,22 @@ An iOS snapchat clone developed in Objective-C that leverages Firebase as a back
 
 - [Course Info](#course-info)
 - [Student Resources](#student-resources)
-    - [Video 02](#getting-your-tools-set-up) 
+    - [Source code](#getting-your-tools-set-up) 
 - [License](#license)
 
 ## Course Info
 
 ## Student Resources
 
-### Getting your tools set up
+### Source Code
+
+<a href="https://codeupstart.com">
+    <img src="https://s31.postimg.org/rhemsn6iz/Screen_Shot_2016_07_12_at_12_44_37_AM.png"/>
+</a>
+
+Don't ever play yourself...try and only use the source code for reference :) 
+
+ * [Source Code](https://google.com)
 
 ```objective-c
 [self viewDidLoad];
