@@ -190,5 +190,5 @@ Good places to score knowledge on product/growth/apps/startups
 * [Paul Graham's Blog](http://paulgraham.com/) - more legendary essays
 
 ## Connect with me
-*email - seth@rapchat.me
-*[twitter](https://twitter.com/@sethmills21)
+* email - seth@rapchat.me
+* [twitter](https://twitter.com/@sethmills21)
